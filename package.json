@@ -5,7 +5,7 @@
   "main": "index.es5.js",
   "scripts": {
     "test": "babel-node test/index.js",
-    "dev": "NODE_ENV=production babel index.js -o index.es5.js -w"
+    "dev": "babel index.js -o index.es5.js -w"
   },
   "repository": {
     "type": "git",

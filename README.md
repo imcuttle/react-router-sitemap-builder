@@ -75,7 +75,9 @@ http://example.com/archive/*
 **After `git clone`**
 
 ```
+npm install babel-node babel
 npm install && npm test
+npm run dev # running babel
 ```
 
 
