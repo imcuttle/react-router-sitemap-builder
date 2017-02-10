@@ -27,13 +27,13 @@ export const getSites = (router) => {
     }
 
     function actionPath (path) {
-        var reg = /\(.*?\)/g, commaReg = /:[^\/]*/g
+        var bracketsReg = /\(.*?\)/g, colonReg = /:[^\/]*/g
         var paths = []
-        if (reg.test(path)) {
-            paths.push(path.replace(reg, '').replace(/\/+$/, ''))
+        if (bracketsReg.test(path)) {
+            paths.push(path.replace(bracketsReg, '').replace(/\/+$/, ''))
         }
-        if (commaReg.test(path)) {
-            paths.push(path.replace(commaReg, '*').replace(/[\(\)]/, '').replace(/\/+$/, ''))
+        if (colonReg.test(path)) {
+            paths.push(path.replace(colonReg, '*').replace(/[\(\)]/, '').replace(/\/+$/, ''))
         }
         if (!paths.length) {
             paths.push(path)
