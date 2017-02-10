@@ -35,11 +35,25 @@ export default (
 - sitemap-builder.js
 ```javascript
 import router from './router'
-import SitemapBuilder from 'react-router-sitemap-builder'
+import siteMapBuilder, {getSites} from 'react-router-sitemap-builder'
 
-// router, prefix, saveWhere
-SitemapBuilder(router, 'http://example.com', __dirname+'/sitemap.txt');
-// return true of false
+
+getSites(router);
+/*
+ [ '/',
+  '/test',
+  '/posts',
+  '/posts/*',
+  '/article/*',
+  '/tags/*',
+  '/tags/pages',
+  '/tags/pages/*',
+  '/archive',
+  '/archive/*' ]
+ */
+/* router, prefix, save_to_where */
+sitemapBuilder(router, 'http://example.com', __dirname+'/sitemap.txt');
+/* return true of false */
 ```
 
 - sitemap.txt

@@ -1,6 +1,7 @@
 
 import router from './router'
 
-import SitemapBuilder from '../index'
+import siteMapBuilder, {getSites} from '../index'
 
-SitemapBuilder(router, 'http://example.com', '/xss/sitemap.txt')
+console.log(getSites(router));
+siteMapBuilder(router, 'http://example.com', __dirname + '/sitemap.txt')
