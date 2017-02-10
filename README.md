@@ -70,5 +70,12 @@ http://example.com/archive
 http://example.com/archive/*
 ```
 
+## Development
+
+**After `git clone`**
+
+```
+npm install && npm test
+```
 
 
