@@ -17,7 +17,7 @@
     "builder"
   ],
   "author": "moyuyc",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/moyuyc/react-router-sitemap-builder/issues"
   },
