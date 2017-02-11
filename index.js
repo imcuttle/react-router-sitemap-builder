@@ -1,19 +1,46 @@
 import {writeFileSync} from 'fs'
 
 export const getSites = (router) => {
-    if (!router.type || router.type.displayName !== 'Router') {
-        return [];
+    if (!router) {
+        console.error('[ERROR] router is NULL');
+        return null;
     }
+    router = findRouter(router);
+    if (!router) {
+        console.error('[ERROR] router is not found');
+        return null;
+    }
+    if (!router.props || !router.props.children) {
+        console.error('[ERROR] router don\'t hava children', router);
+        return null;
+    }
+
     var arr = router.props.children;
     if (!Array.isArray(router.props.children)) {
         arr = [router.props.children]
     }
 
-    return arrFlatten(arr, route => getRouteSites(route, '', []))
-    function getRouteSites (route, base='/', paths=[]) {
+    return arrFlatten(arr, route => getRouteSites(route, ''))
+
+    function findRouter (router) {
+        if ( router && router.type && router.type.displayName === 'Router' ) {
+            return router;
+        }
+        if (!router || !router.props || !router.props.children ) {
+            return null;
+        }
+        var arr = router.props.children;
+        if (!Array.isArray(router.props.children)) {
+            arr = [router.props.children]
+        }
+        return arr.find((vdom) => !!findRouter(vdom))
+    }
+
+    function getRouteSites (route, base='/') {
         if (route.type && route.type.displayName.includes('Redirect') ) {
             return [];
         }
+        var paths=[];
         var path = route.props.path || '';
         return arrFlatten(actionPath(path).map(p => base+p), (base) => {
             if ( !route.props.children ) {

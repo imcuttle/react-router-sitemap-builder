@@ -70,6 +70,10 @@ http://example.com/archive
 http://example.com/archive/*
 ```
 
+## Updates
+
+[Updates](Updates.md)
+
 ## Development
 
 **After `git clone`**
