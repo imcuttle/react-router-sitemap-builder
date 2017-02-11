@@ -2,9 +2,7 @@
 # Updates
 
 - 1.0.0
-
-Base
+    - Base
 
 - 1.1.0
-
-Support Inner Router (Find Router)
+    - Support Inner Router (Find Router)
