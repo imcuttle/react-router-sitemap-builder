@@ -1,6 +1,6 @@
 {
   "name": "react-router-sitemap-builder",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "react-router-sitemap-builder",
   "main": "index.es5.js",
   "scripts": {

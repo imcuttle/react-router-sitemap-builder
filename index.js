@@ -37,7 +37,7 @@ export const getSites = (router) => {
     }
 
     function getRouteSites (route, base='/') {
-        if (route.type && route.type.displayName.includes('Redirect') ) {
+        if (route && route.type && route.type.displayName.includes('Redirect') ) {
             return [];
         }
         var paths=[];
